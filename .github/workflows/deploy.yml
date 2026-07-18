@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
+      - run: npm install
       # Repo name becomes the GitHub Pages subpath: https://<user>.github.io/<repo>/
       # For a custom domain instead, set VITE_BASE_PATH to '/' and add a
       # public/CNAME file with the domain (see README notes in the PR/summary).
