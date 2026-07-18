@@ -1,5 +1,6 @@
 {
-  "name": "salon-nordic",
+  "name": "salon-website-template",
+  "description": "Reusable React/Vite template for a salon/kampaamo business website. Configure src/config and src/data, then deploy.",
   "private": true,
   "version": "1.0.0",
   "type": "module",

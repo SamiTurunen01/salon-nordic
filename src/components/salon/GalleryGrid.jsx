@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BUSINESS } from "../../config/business.js";
 
 /**
  * GalleryGrid — premium portrait/square masonry. Tiles flow into balanced
@@ -91,7 +92,7 @@ function GalleryTile({ it, gap }) {
               color: "var(--text-subtle)",
             }}
           >
-            {capText || "Salon Nordic"}
+            {capText || BUSINESS.name}
           </span>
         </div>
       )}

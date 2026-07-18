@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 /**
- * Button — primary call-to-action across Salon Nordic.
+ * Button — primary call-to-action across the site.
  * Monochrome by design: solid ink, glass, outline or ghost.
  * Pass `as={Link}` with a `to` prop to render as a React Router link
  * that keeps this component's visual styling.

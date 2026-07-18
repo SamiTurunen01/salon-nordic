@@ -10,7 +10,10 @@ import { SectionHeading } from "../components/layout/SectionHeading.jsx";
 import { ServiceCard } from "../components/salon/ServiceCard.jsx";
 import { GalleryGrid } from "../components/salon/GalleryGrid.jsx";
 import { TeamCard } from "../components/salon/TeamCard.jsx";
-import { SALON_DATA } from "../data/salonData.js";
+import { BUSINESS } from "../config/business.js";
+import { SERVICES, PRICE_LIST } from "../data/services.js";
+import { GALLERY_ITEMS } from "../data/gallery.js";
+import { TEAM_MEMBERS } from "../data/team.js";
 import { SALON_IMG } from "../data/images.js";
 
 function Hero() {
@@ -23,7 +26,7 @@ function Hero() {
       <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.52) 42%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0) 100%)" }} />
       <Container style={{ position: "relative", zIndex: 2, width: "100%", paddingBottom: "var(--space-10)", paddingTop: "120px" }}>
         <div style={{ maxWidth: 720, display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-          <Reveal><Eyebrow tone="inverse" withRule>Kampaamo · Helsinki</Eyebrow></Reveal>
+          <Reveal><Eyebrow tone="inverse" withRule>{BUSINESS.category} · {BUSINESS.city}</Eyebrow></Reveal>
           <Reveal delay={80}>
             <h1 style={{ margin: 0, color: "var(--white)", fontFamily: "var(--font-display)", fontWeight: 500, fontSize: "var(--text-6xl)", lineHeight: 1.02, letterSpacing: "var(--tracking-display)", textWrap: "balance", overflowWrap: "break-word", textShadow: "0 4px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.25)" }}>
               Hiuksesi,<br/>parhaimmillaan
@@ -45,7 +48,7 @@ function Hero() {
 
       <div style={{ position: "absolute", right: "var(--gutter)", bottom: "var(--space-10)", display: "none" }} className="sn-hero-stats">
         <GlassCard tone="dark" padding="md" style={{ display: "flex", gap: "var(--space-6)" }}>
-          {[["12+", "vuotta"], ["6", "stylistiä"], ["4,9★", "arviot"]].map(([n, l]) => (
+          {BUSINESS.stats.map(([n, l]) => (
             <div key={l} style={{ textAlign: "center" }}>
               <div style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-3xl)", fontWeight: 500 }}>{n}</div>
               <div style={{ fontSize: "var(--text-xs)", letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.7)" }}>{l}</div>
@@ -58,7 +61,6 @@ function Hero() {
 }
 
 function FeaturedServices() {
-  const D = SALON_DATA;
   const navigate = useNavigate();
   return (
     <Section muted>
@@ -69,7 +71,7 @@ function FeaturedServices() {
         </div>
       </Reveal>
       <div className="sn-grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "var(--space-5)" }}>
-        {D.services.slice(0, 3).map((s, i) => (
+        {SERVICES.slice(0, 3).map((s, i) => (
           <Reveal key={s.id} delay={i * 80} style={{ display: "flex" }}>
             <ServiceCard {...s} onSelect={() => navigate("/palvelut")} style={{ width: "100%" }} />
           </Reveal>
@@ -80,14 +82,13 @@ function FeaturedServices() {
 }
 
 function GalleryPreview() {
-  const D = SALON_DATA;
   return (
     <Section>
       <Reveal>
         <SectionHeading align="center" eyebrow="Galleria" title="Töitämme" lead="Otos kädenjäljestämme — leikkauksia, värejä ja kampauksia." />
       </Reveal>
       <Reveal style={{ marginTop: "var(--space-8)" }}>
-        <GalleryGrid columns={4} items={D.gallery.slice(0, 8)} />
+        <GalleryGrid columns={4} items={GALLERY_ITEMS.slice(0, 8)} />
       </Reveal>
       <div style={{ display: "flex", justifyContent: "center", marginTop: "var(--space-7)" }}>
         <Button as={Link} to="/galleria" variant="secondary">Koko galleria</Button>
@@ -97,14 +98,13 @@ function GalleryPreview() {
 }
 
 function PricingPreview() {
-  const D = SALON_DATA;
   return (
     <Section muted>
       <Reveal>
         <SectionHeading align="center" eyebrow="Hinnasto" title="Koko hinnasto" lead="Läpinäkyvä hinnoittelu ilman yllätyksiä. Hinnat ovat alkaen-hintoja ja tarkentuvat konsultaatiossa." />
       </Reveal>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "var(--space-7)", marginTop: "var(--space-8)" }}>
-        {D.priceList.map((col) => (
+        {PRICE_LIST.map((col) => (
           <Reveal key={col.group}>
             <div>
               <h3 style={{ margin: "0 0 var(--space-4)", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 600, letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-muted)" }}>{col.group}</h3>
@@ -128,7 +128,6 @@ function PricingPreview() {
 }
 
 function TeamPreview() {
-  const D = SALON_DATA;
   return (
     <Section>
       <Reveal>
@@ -138,7 +137,7 @@ function TeamPreview() {
         </div>
       </Reveal>
       <div className="sn-grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "var(--space-5)" }}>
-        {D.team.map((m, i) => (
+        {TEAM_MEMBERS.map((m, i) => (
           <Reveal key={m.name} delay={i * 80}><TeamCard {...m} /></Reveal>
         ))}
       </div>

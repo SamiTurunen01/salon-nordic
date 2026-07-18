@@ -4,14 +4,19 @@ import { Navbar } from "../components/navigation/Navbar.jsx";
 import { Footer } from "../components/navigation/Footer.jsx";
 import { IconButton } from "../components/core/IconButton.jsx";
 import { Button } from "../components/core/Button.jsx";
-import { SALON_DATA } from "../data/salonData.js";
+import { BUSINESS } from "../config/business.js";
+import { NAV_LINKS, FOOTER_COLUMNS } from "../config/navigation.js";
+import { SEO, applySeo } from "../config/seo.js";
 
 export function RootLayout() {
   const [atTop, setAtTop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const D = SALON_DATA;
+
+  useEffect(() => {
+    applySeo(SEO);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setAtTop(window.scrollY < 40);
@@ -39,8 +44,8 @@ export function RootLayout() {
   return (
     <div>
       <Navbar
-        brand={D.brand}
-        links={D.nav}
+        brand={BUSINESS.name}
+        links={NAV_LINKS}
         scrolled
         style={navStyle}
         cta="Varaa aika"
@@ -51,15 +56,15 @@ export function RootLayout() {
       <Outlet />
 
       <Footer
-        brand={D.brand}
-        tagline={D.tagline}
-        columns={D.footerColumns}
-        contact={D.contact}
-        social={D.social}
-        location="Joensuu · Suomi"
+        brand={BUSINESS.name}
+        tagline={BUSINESS.tagline}
+        columns={FOOTER_COLUMNS}
+        contact={{ address: BUSINESS.address, phone: BUSINESS.phone, email: BUSINESS.email }}
+        social={BUSINESS.social}
+        location={`${BUSINESS.city} · ${BUSINESS.country}`}
         bottomNote={
           <span style={{ display: "flex", gap: "var(--space-4)", flexWrap: "wrap", alignItems: "center" }}>
-            <span>© {new Date().getFullYear()} Salon Nordic</span>
+            <span>© {new Date().getFullYear()} {BUSINESS.name}</span>
             <a
               href="/tietosuojaseloste"
               onClick={(e) => { e.preventDefault(); navigate("/tietosuojaseloste"); }}
@@ -75,11 +80,11 @@ export function RootLayout() {
       {menuOpen && (
         <div style={{ position: "fixed", inset: 0, zIndex: 100, background: "var(--glass-bg-strong)", backdropFilter: "var(--glass-backdrop)", WebkitBackdropFilter: "var(--glass-backdrop)", display: "flex", flexDirection: "column", padding: "var(--space-6) var(--gutter)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", height: 76 }}>
-            <span style={{ fontWeight: 700, letterSpacing: "var(--tracking-eyebrow)" }}>{D.brand}</span>
+            <span style={{ fontWeight: 700, letterSpacing: "var(--tracking-eyebrow)" }}>{BUSINESS.name}</span>
             <IconButton label="Sulje" variant="outline" onClick={() => setMenuOpen(false)}>✕</IconButton>
           </div>
           <nav style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)", marginTop: "var(--space-6)" }}>
-            {D.nav.map((l) => (
+            {NAV_LINKS.map((l) => (
               <button
                 key={l.href}
                 onClick={() => navigate(l.href)}

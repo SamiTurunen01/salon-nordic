@@ -1,6 +1,6 @@
 /**
  * Eyebrow — uppercase, wide-tracked micro label that sits above headings.
- * A signature Salon Nordic motif; often paired with a short rule.
+ * A signature motif of this design system; often paired with a short rule.
  */
 export function Eyebrow({ children, withRule = false, tone = "muted", style = {}, ...rest }) {
   const colors = { muted: "var(--text-muted)", ink: "var(--black)", inverse: "rgba(255,255,255,0.7)" };

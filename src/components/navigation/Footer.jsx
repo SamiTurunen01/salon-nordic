@@ -27,13 +27,13 @@ const headingStyle = {
  * social buttons and fine print. Multi-column on desktop, stacks on small screens.
  */
 export function Footer({
-  brand = "SALON NORDIC",
+  brand = "YOUR SALON",
   tagline,
   columns = [],
   contact,
   social = [],
-  location = "Helsinki · Suomi",
-  bottomNote = "© Salon Nordic",
+  location = "Kaupunki · Maa",
+  bottomNote = "© Your Salon",
   style = {},
   ...rest
 }) {

@@ -51,7 +51,7 @@ const NAVLINK_CSS = `
  * `links` items use `href` as a client-side route path.
  */
 export function Navbar({
-  brand = "SALON NORDIC",
+  brand = "YOUR SALON",
   links = [],
   cta = "Varaa aika",
   ctaTo = "/yhteystiedot",
