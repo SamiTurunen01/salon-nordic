@@ -10,7 +10,7 @@ export function Input({
 }) {
   const inputId = id || `inp-${Math.random().toString(36).slice(2, 8)}`;
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)", width: "100%" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)", width: "100%", minWidth: 0 }}>
       {label && (
         <label
           htmlFor={inputId}
@@ -30,6 +30,8 @@ export function Input({
         required={required}
         style={{
           height: 52,
+          width: "100%",
+          minWidth: 0,
           padding: "0 var(--space-4)",
           fontFamily: "var(--font-sans)",
           fontSize: "var(--text-base)",

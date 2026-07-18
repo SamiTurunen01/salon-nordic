@@ -2,7 +2,7 @@
 export function Select({ label, helper, id, options = [], required = false, style = {}, ...rest }) {
   const inputId = id || `sel-${Math.random().toString(36).slice(2, 8)}`;
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)", width: "100%" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2)", width: "100%", minWidth: 0 }}>
       {label && (
         <label
           htmlFor={inputId}
@@ -17,12 +17,13 @@ export function Select({ label, helper, id, options = [], required = false, styl
           {required && <span style={{ color: "var(--text-muted)" }}> *</span>}
         </label>
       )}
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative", minWidth: 0 }}>
         <select
           id={inputId}
           required={required}
           style={{
             width: "100%",
+            minWidth: 0,
             height: 52,
             padding: "0 var(--space-7) 0 var(--space-4)",
             fontFamily: "var(--font-sans)",

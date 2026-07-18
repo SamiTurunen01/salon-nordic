@@ -133,6 +133,7 @@ export function Navbar({
           variant={scrolled ? "primary" : "glass"}
           size="sm"
           className="sn-cta-shimmer"
+          data-nav-cta
           style={{ position: "relative", overflow: "hidden" }}
         >
           {cta}

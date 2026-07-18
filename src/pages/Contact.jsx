@@ -23,10 +23,10 @@ export default function Contact() {
       <PageHero eyebrow="Yhteystiedot" title="Varaa aika"
         lead="Jätä varauspyyntö tai poikkea käymään — vastaamme yleensä saman päivän aikana." />
       <Section>
-        <div className="sn-contact" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-9)", alignItems: "start" }}>
+        <div className="sn-contact" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", gap: "var(--space-9)", alignItems: "start" }}>
           {/* Form */}
           <Reveal>
-            <GlassCard tone="strong" padding="xl" elevation="md" style={{ background: "var(--surface)" }}>
+            <GlassCard tone="strong" padding="xl" elevation="md" style={{ background: "var(--surface)", minWidth: 0 }}>
               {sent ? (
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", paddingBlock: "var(--space-6)", textAlign: "center" }}>
                   <span style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-3xl)", fontWeight: 500 }}>Kiitos!</span>
@@ -37,12 +37,12 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={(e) => { e.preventDefault(); if (!consent) { setConsentError(true); return; } setSent(true); }} style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-4)" }}>
+                  <div className="sn-form-row" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", gap: "var(--space-4)" }}>
                     <Input label="Nimi" placeholder="Etunimi Sukunimi" required />
                     <Input label="Puhelin" type="tel" placeholder="040 123 4567" required />
                   </div>
                   <Input label="Sähköposti" type="email" placeholder="nimi@esimerkki.fi" required />
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-4)" }}>
+                  <div className="sn-form-row" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", gap: "var(--space-4)" }}>
                     <Select label="Palvelu" options={D.services.map((s) => s.title)} />
                     <Select label="Kampaaja" options={["Kuka tahansa", ...D.team.map((t) => t.name)]} />
                   </div>
@@ -80,13 +80,13 @@ export default function Contact() {
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-7)" }}>
               <div>
                 <h3 style={{ margin: "0 0 var(--space-3)", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 600, letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-muted)" }}>Käyntiosoite</h3>
-                <p style={{ margin: 0, fontSize: "var(--text-lg)", lineHeight: 1.6 }}>{C.address.map((l) => <span key={l} style={{ display: "block" }}>{l}</span>)}</p>
+                <p style={{ margin: 0, fontSize: "var(--text-lg)", lineHeight: 1.6, overflowWrap: "anywhere" }}>{C.address.map((l) => <span key={l} style={{ display: "block" }}>{l}</span>)}</p>
               </div>
               <div>
                 <h3 style={{ margin: "0 0 var(--space-3)", fontFamily: "var(--font-sans)", fontSize: "var(--text-xs)", fontWeight: 600, letterSpacing: "var(--tracking-eyebrow)", textTransform: "uppercase", color: "var(--text-muted)" }}>Yhteys</h3>
                 <p style={{ margin: 0, fontSize: "var(--text-lg)", lineHeight: 1.7 }}>
-                  <a href={"tel:" + C.phone} style={{ color: "var(--text)", textDecoration: "none", display: "block" }}>{C.phone}</a>
-                  <a href={"mailto:" + C.email} style={{ color: "var(--text)", textDecoration: "none", display: "block" }}>{C.email}</a>
+                  <a href={"tel:" + C.phone} style={{ color: "var(--text)", textDecoration: "none", display: "block", overflowWrap: "anywhere" }}>{C.phone}</a>
+                  <a href={"mailto:" + C.email} style={{ color: "var(--text)", textDecoration: "none", display: "block", overflowWrap: "anywhere" }}>{C.email}</a>
                 </p>
               </div>
               {D.social && D.social.length > 0 && (
@@ -96,7 +96,7 @@ export default function Contact() {
                     {D.social.map((s) => (
                       <div key={s.name} style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
                         <SocialButton name={s.name} label={s.label} href={s.href} tone="solid" />
-                        <a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "var(--text)", textDecoration: "none", fontSize: "var(--text-base)" }}>{s.handle}</a>
+                        <a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "var(--text)", textDecoration: "none", fontSize: "var(--text-base)", overflowWrap: "anywhere" }}>{s.handle}</a>
                       </div>
                     ))}
                   </div>
@@ -112,7 +112,7 @@ export default function Contact() {
                   ))}
                 </div>
               </div>
-              <div style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid var(--border)", width: "100%" }}>
+              <div style={{ position: "relative", aspectRatio: "16 / 9", borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid var(--border)", width: "100%", minWidth: 0 }}>
                 <iframe
                   title="Kartta - Nepenmäenkatu 13, 80210 Joensuu"
                   src="https://www.google.com/maps?q=Nepenm%C3%A4enkatu+13,+80210+Joensuu,+Finland&output=embed"
