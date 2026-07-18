@@ -1,0 +1,47 @@
+/* ============================================================
+   TYPOGRAPHY TOKENS — Salon Nordic
+   ============================================================ */
+:root {
+  /* ---- Families ---- */
+  --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: var(--font-sans);
+
+  /* ---- Weights ---- */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  /* ---- Fluid type scale (clamps so it breathes on large screens) ---- */
+  --text-xs:   0.75rem;
+  --text-sm:   0.8125rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   clamp(1.25rem, 2.2vw, 1.5rem);
+  --text-2xl:  clamp(1.5rem, 3.2vw, 2rem);
+  --text-3xl:  clamp(2rem, 4.4vw, 2.75rem);
+  --text-4xl:  clamp(2.5rem, 5.6vw, 3.75rem);
+  --text-5xl:  clamp(3.25rem, 7.5vw, 5.5rem);
+  --text-6xl:  clamp(4rem, 10vw, 7.5rem);
+
+  /* ---- Line heights ---- */
+  --leading-none:    1;
+  --leading-tight:   1.08;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  /* ---- Letter spacing ---- */
+  --tracking-display: -0.02em;
+  --tracking-tight:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-eyebrow: 0.22em;
+
+  /* ---- Semantic roles ---- */
+  --display-family: var(--font-display);
+  --heading-family: var(--font-display);
+  --body-family:    var(--font-sans);
+  --eyebrow-family: var(--font-sans);
+}

@@ -1,0 +1,21 @@
+/* ============================================================
+   MOTION TOKENS — Salon Nordic
+   Subtle, slow, refined. Long easing curves; no bounce.
+   ============================================================ */
+:root {
+  --dur-instant: 80ms;
+  --dur-fast:    160ms;
+  --dur:         280ms;
+  --dur-slow:    520ms;
+  --dur-slower:  760ms;
+
+  /* Decelerate — the house curve for entrances & hovers */
+  --ease-out: cubic-bezier(0.16, 1, 0.30, 1);
+  /* Symmetric — for moves & toggles */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Gentle accelerate — for exits */
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+
+  --hover-lift: -2px;
+  --press-scale: 0.985;
+}

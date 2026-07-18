@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Salon Nordic</title>
+    <!--
+      GitHub Pages has no server-side router, so a hard refresh (or a shared
+      link) on a route like /palvelut hits this 404 page instead of the SPA.
+      This script re-encodes the requested path into a query string and
+      redirects to the real index.html, which decodes it back (see the
+      inline script in index.html) so React Router can take over.
+
+      pathSegmentsToKeep:
+        - 1 for a GitHub Pages *project* site (https://user.github.io/repo/…)
+          so the "/repo" segment survives the redirect.
+        - 0 for a *user/org* site or a custom domain served from the root
+          (https://example.com/…).
+      Keep this in sync with vite.config.js's `base`.
+    -->
+    <script>
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname
+            .split("/")
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join("/") +
+          "/?/" +
+          l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
