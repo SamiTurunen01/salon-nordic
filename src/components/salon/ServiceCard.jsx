@@ -23,6 +23,8 @@ export function ServiceCard({
         display: "flex",
         flexDirection: "column",
         height: "100%",
+        minWidth: 0,
+        containerType: "inline-size",
         background: "var(--surface)",
         border: "1px solid var(--border)",
         borderRadius: "var(--radius-lg)",
@@ -80,13 +82,15 @@ export function ServiceCard({
           </div>
         )}
       </div>
-      <div style={{ display: "flex", flex: "1 1 auto", flexDirection: "column", gap: "var(--space-2)", padding: "var(--space-5)" }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "var(--space-3)" }}>
+      <div style={{ display: "flex", flex: 1, minWidth: 0, flexDirection: "column", gap: "var(--space-2)", padding: "var(--space-5)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) auto", alignItems: "baseline", gap: "var(--space-3)" }}>
           <h3
             style={{
               margin: 0,
+              minWidth: 0,
+              overflowWrap: "break-word",
               fontFamily: "var(--font-display)",
-              fontSize: "var(--text-2xl)",
+              fontSize: "clamp(1.375rem, 1.1rem + 2cqi, 2rem)",
               fontWeight: "var(--weight-medium)",
               letterSpacing: "var(--tracking-tight)",
               color: "var(--text)",
