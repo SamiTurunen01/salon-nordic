@@ -6,13 +6,10 @@ import { PageHero } from "../components/layout/PageHero.jsx";
 import { GlassCard } from "../components/layout/GlassCard.jsx";
 import { Button } from "../components/core/Button.jsx";
 import { Input } from "../components/forms/Input.jsx";
-import { Select } from "../components/forms/Select.jsx";
 import { Textarea } from "../components/forms/Textarea.jsx";
 import { Checkbox } from "../components/forms/Checkbox.jsx";
 import { SocialButton } from "../components/navigation/SocialButton.jsx";
 import { BUSINESS } from "../config/business.js";
-import { SERVICES } from "../data/services.js";
-import { TEAM_MEMBERS } from "../data/team.js";
 
 const MAP_QUERY = encodeURIComponent(`${BUSINESS.address.join(", ")}, ${BUSINESS.country}`);
 
@@ -23,8 +20,8 @@ export default function Contact() {
   const [consentError, setConsentError] = useState(false);
   return (
     <main>
-      <PageHero eyebrow="Yhteystiedot" title="Varaa aika"
-        lead="Jätä varauspyyntö tai poikkea käymään — vastaamme yleensä saman päivän aikana." />
+      <PageHero eyebrow="Yhteystiedot" title="Ota yhteyttä"
+        lead="Kysy lisää palveluistamme tai jätä viesti — vastaamme yleensä saman päivän aikana. Ajan voit varata kätevästi verkossa." />
       <Section>
         <div className="sn-contact" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", gap: "var(--space-9)", alignItems: "start" }}>
           {/* Form */}
@@ -33,7 +30,7 @@ export default function Contact() {
               {sent ? (
                 <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", paddingBlock: "var(--space-6)", textAlign: "center" }}>
                   <span style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-3xl)", fontWeight: 500 }}>Kiitos!</span>
-                  <p style={{ margin: 0, color: "var(--text-secondary)" }}>Varauspyyntösi on vastaanotettu. Otamme sinuun pian yhteyttä.</p>
+                  <p style={{ margin: 0, color: "var(--text-secondary)" }}>Viestisi on vastaanotettu. Otamme sinuun pian yhteyttä.</p>
                   <div style={{ marginTop: "var(--space-3)" }}>
                     <Button variant="secondary" onClick={() => setSent(false)}>Lähetä uusi</Button>
                   </div>
@@ -45,10 +42,6 @@ export default function Contact() {
                     <Input label="Puhelin" type="tel" placeholder="040 123 4567" required />
                   </div>
                   <Input label="Sähköposti" type="email" placeholder="nimi@esimerkki.fi" required />
-                  <div className="sn-form-row" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", gap: "var(--space-4)" }}>
-                    <Select label="Palvelu" options={SERVICES.map((s) => s.title)} />
-                    <Select label="Kampaaja" options={["Kuka tahansa", ...TEAM_MEMBERS.map((t) => t.name)]} />
-                  </div>
                   <Textarea label="Viesti" rows={4} placeholder="Kerro toiveistasi tai toivotusta ajankohdasta…" />
                   <div>
                     <Checkbox
@@ -72,7 +65,7 @@ export default function Contact() {
                       <p style={{ margin: "var(--space-2) 0 0", color: "var(--error, #d92d20)", fontSize: "var(--text-sm)" }}>Hyväksy tietosuojakäytäntö ja yhteydenotto ennen viestin lähettämistä.</p>
                     )}
                   </div>
-                  <Button variant="primary" size="lg" fullWidth type="submit">Lähetä varauspyyntö</Button>
+                  <Button variant="primary" size="lg" fullWidth type="submit">Lähetä viesti</Button>
                 </form>
               )}
             </GlassCard>

@@ -10,6 +10,7 @@ export const NAV_LINKS = [
   { label: "Hinnasto", href: "/hinnasto" },
   { label: "Galleria", href: "/galleria" },
   { label: "Meistä", href: "/meista" },
+  { label: "Varaa aika", href: "/varaa-aika" },
   { label: "Yhteystiedot", href: "/yhteystiedot" },
 ];
 
@@ -30,6 +31,7 @@ export const FOOTER_COLUMNS = [
       { label: "Galleria", href: "/galleria" },
       { label: "Hinnasto", href: "/hinnasto" },
       { label: "Yhteystiedot", href: "/yhteystiedot" },
+      { label: "Varaa aika", href: "/varaa-aika" },
     ],
   },
 ];

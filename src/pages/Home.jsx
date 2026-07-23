@@ -39,7 +39,7 @@ function Hero() {
           </Reveal>
           <Reveal delay={240}>
             <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", marginTop: "var(--space-2)" }}>
-              <Button as={Link} to="/yhteystiedot" variant="primary" size="lg" style={{ background: "var(--white)", color: "var(--black)", borderColor: "var(--white)" }}>Varaa aika</Button>
+              <Button as="a" href={BUSINESS.bookingUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="lg" style={{ background: "var(--white)", color: "var(--black)", borderColor: "var(--white)" }}>Varaa aika</Button>
               <Button as={Link} to="/palvelut" variant="glass" size="lg" iconRight={<span>→</span>}>Palvelut</Button>
             </div>
           </Reveal>
@@ -101,7 +101,7 @@ function PricingPreview() {
   return (
     <Section muted>
       <Reveal>
-        <SectionHeading align="center" eyebrow="Hinnasto" title="Koko hinnasto" lead="Läpinäkyvä hinnoittelu ilman yllätyksiä. Hinnat ovat alkaen-hintoja ja tarkentuvat konsultaatiossa." />
+        <SectionHeading align="center" eyebrow="Hinnasto" title="Palvelut ja hinnat" lead="Selkeä hinnoittelu. Hinta määräytyy palvelun laajuuden sekä hiusten pituuden ja paksuuden mukaan." />
       </Reveal>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "var(--space-7)", marginTop: "var(--space-8)" }}>
         {PRICE_LIST.map((col) => (

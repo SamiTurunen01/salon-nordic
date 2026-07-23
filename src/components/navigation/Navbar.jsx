@@ -48,13 +48,14 @@ const NAVLINK_CSS = `
 /**
  * Navbar — sticky glass top bar. Goes transparent over a hero and frosts
  * once scrolled (pass `scrolled`). Mobile collapses to a menu button.
- * `links` items use `href` as a client-side route path.
+ * `links` items use `href` as a client-side route path. `ctaTo` opens in a
+ * new tab (it's the salon's external booking link, e.g. Timma).
  */
 export function Navbar({
   brand = "YOUR SALON",
   links = [],
   cta = "Varaa aika",
-  ctaTo = "/yhteystiedot",
+  ctaTo = "#",
   scrolled = true,
   onMenu,
   style = {},
@@ -128,8 +129,10 @@ export function Navbar({
 
       <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
         <Button
-          as={Link}
-          to={ctaTo}
+          as="a"
+          href={ctaTo}
+          target="_blank"
+          rel="noopener noreferrer"
           variant={scrolled ? "primary" : "glass"}
           size="sm"
           className="sn-cta-shimmer"

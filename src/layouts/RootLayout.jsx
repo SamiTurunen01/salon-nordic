@@ -49,7 +49,7 @@ export function RootLayout() {
         scrolled
         style={navStyle}
         cta="Varaa aika"
-        ctaTo="/yhteystiedot"
+        ctaTo={BUSINESS.bookingUrl}
         onMenu={() => setMenuOpen(true)}
       />
 
@@ -95,7 +95,7 @@ export function RootLayout() {
             ))}
           </nav>
           <div style={{ marginTop: "auto" }}>
-            <Button variant="primary" size="lg" fullWidth onClick={() => navigate("/yhteystiedot")}>Varaa aika</Button>
+            <Button as="a" href={BUSINESS.bookingUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="lg" fullWidth>Varaa aika</Button>
           </div>
         </div>
       )}

@@ -5,6 +5,7 @@ import Services from "./pages/Services.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import Team from "./pages/Team.jsx";
+import Booking from "./pages/Booking.jsx";
 import Contact from "./pages/Contact.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="hinnasto" element={<Pricing />} />
           <Route path="galleria" element={<Gallery />} />
           <Route path="meista" element={<Team />} />
+          <Route path="varaa-aika" element={<Booking />} />
           <Route path="yhteystiedot" element={<Contact />} />
           <Route path="tietosuojaseloste" element={<PrivacyPolicy />} />
           <Route path="*" element={<Home />} />

@@ -3,6 +3,7 @@ import { Container } from "./Container.jsx";
 import { Eyebrow } from "../core/Eyebrow.jsx";
 import { Button } from "../core/Button.jsx";
 import { SALON_IMG } from "../../data/images.js";
+import { BUSINESS } from "../../config/business.js";
 
 /* Full-bleed dark CTA band used to close pages. */
 export function CtaBand() {
@@ -16,10 +17,10 @@ export function CtaBand() {
             Uusi tyylisi odottaa
           </h2>
           <p style={{ margin: 0, fontSize: "var(--text-lg)", lineHeight: 1.7, color: "rgba(255,255,255,0.78)", maxWidth: "52ch" }}>
-            Varaa aika muutamassa sekunnissa — kerro toiveistasi, niin hoidamme loput.
+            Varaa aika ja kerro toiveistasi, niin hoidamme loput.
           </p>
           <div style={{ display: "flex", gap: "var(--space-3)", flexWrap: "wrap", justifyContent: "center" }}>
-            <Button as={Link} to="/yhteystiedot" variant="glass" size="lg">Varaa aika</Button>
+            <Button as="a" href={BUSINESS.bookingUrl} target="_blank" rel="noopener noreferrer" variant="glass" size="lg">Varaa aika</Button>
             <Button as={Link} to="/palvelut" variant="ghost" size="lg" style={{ color: "var(--white)" }}>Tutustu palveluihin</Button>
           </div>
         </div>

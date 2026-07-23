@@ -32,6 +32,11 @@ export const BUSINESS = {
   phone: "040 123 4567",
   email: "info@salonnordic.fi",
 
+  // Online booking link — the salon's Timma reservation page. Actual
+  // bookings are completed on Timma, not on this site. Replace with the
+  // salon's real Timma URL (Ajanvaraus-widgetin jakolinkki).
+  bookingUrl: "https://varaa.timma.fi/reservation/salonnordic",
+
   // [day label, hours label] pairs, shown on the Contact page in order.
   hours: [
     ["Ma–Pe", "9–20"],
